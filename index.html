@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Помодоро</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <span class="time">00:00</span>
+    <div class="controls">
+        <input class="time-input" type="number" inputmode="numeric" placeholder="Количество минут" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+        <button type="button" class="start-button" onclick="start()">Старт</button>
+        <button type="button" class="stop-button">Стоп</button>
+        <button type="button" class="reset-button">Сброс</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
