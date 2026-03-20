@@ -39,14 +39,30 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	background-color: rgb(190, 45, 45);
+	background-color: rgb(110, 190, 45);
 	color: white;
 	gap: 64px;
 
 	&.start {
-		background-color: rgb(110, 190, 45);
+		background-color: rgb(190, 45, 45);
 
 		.stop-button {
+			display: flex;
+		}
+
+		.start-button {
+			display: none;
+		}
+
+		.reset-button {
+			display: flex;
+		}
+	}
+
+	&.pause {
+		background-color: rgb(190, 180, 45);
+
+		.resume-button {
 			display: flex;
 		}
 
@@ -68,6 +84,10 @@ body {
 .time {
 	font-weight: bold;
 	font-size: 64px;
+}
+
+.resume-button {
+	display: none;
 }
 
 .reset-button {

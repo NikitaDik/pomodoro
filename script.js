@@ -1,7 +1,6 @@
 const timeElement = document.querySelector(".time");
 const timeInputElement = document.querySelector(".time-input");
 
-let isRun = false;
 let seconds = 0;
 let timer = null;
 
@@ -20,26 +19,31 @@ function finishPomo() {
 	seconds = 0;
 	renderTime();
 	document.title = "Помодоро";
-	isRun = false;
+	document.body.className = "";
 
-	// Запрос разрешения
 	new Notification("Помодоро закончен");
 }
 
 function reset() {
-	seconds = 0;
-	renderTime();
-	document.title = getTimeText();
+	finishPomo();
 }
 
-function stop() {}
+function pause() {
+	clearInterval(timer);
+	document.body.className = "pause";
+	console.log(timer);
+}
+
+function resume() {
+	timer = setInterval(tick, 1000);
+	document.body.className = "start";
+}
 
 function start() {
 	const minutes = timeInputElement.value;
 	Notification.requestPermission();
 
 	if (minutes) {
-		isRun = true;
 		seconds = minutes * 60;
 		document.body.className = "start";
 		timeInputElement.value = null;
@@ -49,7 +53,7 @@ function start() {
 	}
 }
 
-function getTimeText(params) {
+function getTimeText() {
 	const minutes = String(Math.floor(seconds / 60));
 	const sec = String(seconds % 60);
 	return `${minutes.padStart(2, "0")}:${sec.padStart(2, "0")}`;

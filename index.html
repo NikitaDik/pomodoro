@@ -11,8 +11,9 @@
     <div class="controls">
         <input class="time-input" type="number" inputmode="numeric" placeholder="Количество минут" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
         <button type="button" class="start-button" onclick="start()">Старт</button>
-        <button type="button" class="stop-button">Стоп</button>
-        <button type="button" class="reset-button">Сброс</button>
+        <button type="button" class="stop-button" onclick="pause()">Стоп</button>
+        <button type="button" class="resume-button" onclick="resume()">Продолжить</button>
+        <button type="button" class="reset-button" onclick="reset()">Сброс</button>
     </div>
     <script src="script.js"></script>
 </body>
